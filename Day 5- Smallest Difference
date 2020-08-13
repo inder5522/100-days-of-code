@@ -1,0 +1,32 @@
+Write a function that takes in two non-empty arrays of integers, find the pair of numbers (one from each array) whose absolute difference is closet to zero, and returns an array containing these two numbers, with the numbsers, with the number from the first array in the first position.
+
+You can assume that there will only be one pair of numbers with the smallest difference.
+
+Sample Input
+
+arrayOne = [-1, 5, 10, 20, 28, 3]
+arrayTwo = [26, 134, 135, 15, 17]
+
+Sample Output
+
+[28, 26]
+ 
+Here is the code:
+
+def smallestDifference(arrayOne, arrayTwo):
+  temp=abs(arrayOne[0]-arrayTwo[0])
+  for i in range(len(arrayOne)):
+    for j in range(len(arrayTwo)):
+      if temp > abs(arrayOne[i] - arrayTwo[j]):
+          temp=abs(arrayOne[i] - arrayTwo[j])
+          result=[]
+          result.append(arrayOne[i])
+          result.append(arrayTwo[j])
+  return result
+      
+  
+
+if __name__ == "__main__":
+  arrayOne = [-1, 5, 10, 20, 28, 3]
+  arrayTwo = [26, 134, 135, 15, 17]
+  print(smallestDifference(arrayOne, arrayTwo))
